@@ -32,7 +32,6 @@ export default function Home() {
     setTopPhotos(topPhotosRes.data);
   };
 
-  // Define the signup function
   const signup = async () => {
     await axios.post(`${API_URL}/signup`, { username, password });
     alert('User created! Please log in.');
@@ -59,8 +58,8 @@ export default function Home() {
     const userId = decodedToken.userId;
   
     const formData = new FormData();
-    formData.append('image', image); // Use the image state directly
-    formData.append('userId', userId); // Include user ID for backend
+    formData.append('image', image);
+    formData.append('userId', userId);
   
     try {
       const response = await axios.post(`${API_URL}/upload`, formData, {
@@ -92,7 +91,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <h1 className="title">📸 Photo Sharing App</h1>
+      <h1 className="title">Photo Sharing App</h1>
 
       {!token ? (
         <div className="auth-container">
